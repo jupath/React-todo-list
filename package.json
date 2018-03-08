@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
-  "repository": "git@github.com:jupath/React-todo-list.git",
+  "repository": "https://github.com/jupath/React-todo-list.git",
   "author": "Attila Taligas",
   "license": "MIT",
   "dependencies": {
