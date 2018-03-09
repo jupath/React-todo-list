@@ -7,7 +7,44 @@ import Footer from './components/Footer';
 class App extends Component {
 
   state = {
-    todos: []
+    todos: [],
+    filter: undefined
+  }
+
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('todos');
+      const todos = JSON.parse(json);
+      if(todos) {
+        this.setState({todos})
+      }
+    } catch(e) {
+      console.error('Error: ', e);
+    }
+  }
+
+  componentDidUpdate() {
+    const json = JSON.stringify(this.state.todos);
+    localStorage.setItem('todos', json);
+  }
+
+  filterTodos = () => {
+    let filter = this.state.filter;
+    if( filter === undefined ) {
+      return this.state.todos;
+    } else if( filter === 'active' ) {
+      const todos = this.state.todos.filter(todo => todo.isDone === false);
+      return todos;
+    } else if( filter === 'done' ) {
+      const todos = this.state.todos.filter(todo => todo.isDone === true);
+      return todos;
+    } else {
+      return this.state.todos;
+    }
+  }
+
+  setFilter = filter => {
+    this.setState({ filter });
   }
 
   saveTodoToList = todo => {
@@ -36,6 +73,15 @@ class App extends Component {
     this.setState({todos});
   }
 
+  itemsLeft = () => {
+    const items = this.state.todos.filter(todo => todo.isDone === false).length;
+    return items;
+  }
+
+  deleteAll = () => {
+    this.setState({ todos: [] })
+  }
+
   render() {
     return (
       <div>
@@ -44,10 +90,13 @@ class App extends Component {
           saveTodoToList={this.saveTodoToList}
         />
         <TodoList
-          todos={this.state.todos}
+          filterTodos={this.filterTodos}
+          setFilter={this.setFilter}
           deleteItemFromList={this.deleteItemFromList}
           editTodo={this.editTodo}
           changeStatus={this.changeStatus}
+          itemsLeft={this.itemsLeft}
+          deleteAll={this.deleteAll}
         />
         <Footer />
       </div>

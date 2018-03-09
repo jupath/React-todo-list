@@ -5,11 +5,16 @@ import TodoListItem from './TodoListItem';
 class TodoList extends Component {
 
   render() {
+    let todos = this.props.filterTodos();
     return (
       <div>
-        <TodoListHeader />
+        <TodoListHeader
+          itemsLeft={this.props.itemsLeft}
+          deleteAll={this.props.deleteAll}
+          setFilter={this.props.setFilter}
+        />
         {
-          this.props.todos.map(todo =>
+          todos.map(todo =>
             <TodoListItem
               {...todo}
               key={todo.id}
