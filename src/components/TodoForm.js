@@ -12,9 +12,9 @@ class TodoForm extends Component {
     const text = event.target.elements.addTodo.value;
 
     if (text === '') {
-      this.setState(() => ({
+      this.setState({
         error: 'Please, fill out the form!'
-      }));
+      });
     } else {
       const todo = {
         id: uuid(),
@@ -22,9 +22,9 @@ class TodoForm extends Component {
         isDone: false
       }
       this.props.saveTodoToList(todo);
-      this.setState(() => ({
+      this.setState({
         error: false
-      }));
+      });
       event.target.elements.addTodo.value = '';
     }
   }

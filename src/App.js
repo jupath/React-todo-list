@@ -19,6 +19,23 @@ class App extends Component {
     }));
   }
 
+  deleteItemFromList = id => {
+    const todos = this.state.todos.filter( todo => todo.id !== id );
+    this.setState({todos});
+  }
+
+  editTodo = todo => {
+    const {id, text} = todo;
+    const todos = this.state.todos.map(todo => todo.id === id ? ({...todo, text}) : todo );
+    this.setState({todos});
+  }
+
+  changeStatus = todo => {
+    const {id, isDone} = todo;
+    const todos = this.state.todos.map(todo => todo.id === id ? ({...todo, isDone}) : todo );
+    this.setState({todos});
+  }
+
   render() {
     return (
       <div>
@@ -28,6 +45,9 @@ class App extends Component {
         />
         <TodoList
           todos={this.state.todos}
+          deleteItemFromList={this.deleteItemFromList}
+          editTodo={this.editTodo}
+          changeStatus={this.changeStatus}
         />
         <Footer />
       </div>
