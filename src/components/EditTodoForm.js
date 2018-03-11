@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 class EditTodoForm extends Component {
 
@@ -29,10 +30,10 @@ class EditTodoForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleChangeTextSubmit}>
+      <div className="todo-list__content">
+        <form className="todo-list__form" onSubmit={this.handleChangeTextSubmit}>
           <input type="text" value={this.state.text} onChange={this.handleChangeText} />
-          <button>save</button>
+          <Button color="success">save</Button>
         </form>
         { this.state.error && <p>{this.state.error}</p> }
       </div>

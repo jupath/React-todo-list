@@ -7,11 +7,12 @@ class TodoList extends Component {
   render() {
     let todos = this.props.filterTodos();
     return (
-      <div>
+      <div className="todo-list">
         <TodoListHeader
           itemsLeft={this.props.itemsLeft}
           deleteAll={this.props.deleteAll}
           setFilter={this.props.setFilter}
+          activeFilter={this.props.activeFilter}
         />
         {
           todos.map(todo =>

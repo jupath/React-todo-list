@@ -84,7 +84,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container px-lg-7">
         <Header />
         <TodoForm
           saveTodoToList={this.saveTodoToList}
@@ -97,6 +97,7 @@ class App extends Component {
           changeStatus={this.changeStatus}
           itemsLeft={this.itemsLeft}
           deleteAll={this.deleteAll}
+          activeFilter={this.state.filter}
         />
         <Footer />
       </div>

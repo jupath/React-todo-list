@@ -1,4 +1,6 @@
-body {
-  background-color: brown;
-  color: white;
-}
+@import "./helpers/variables";
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "./layout/general";
+@import "./components/form";
+@import "./layout/todo-form";
+@import "./layout/todo-list";

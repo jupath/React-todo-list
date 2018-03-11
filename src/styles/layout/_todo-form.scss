@@ -1,0 +1,14 @@
+.todo-form > form {
+  align-items: stretch;
+  display: flex;
+  input[type=text] {
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    padding: 8px 10px;
+    width: 100%;
+  }
+  button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

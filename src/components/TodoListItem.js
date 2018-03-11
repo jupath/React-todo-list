@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditTodoForm from './EditTodoForm';
+import { Button } from 'reactstrap';
 
 class TodoListItem extends Component {
 
@@ -43,14 +44,22 @@ class TodoListItem extends Component {
     if (this.state.edit) {
       element = <EditTodoForm text={this.props.text} handleEditTodo={this.handleEditTodo} />;
     } else {
-      element = <span>{this.props.text}<button onClick={this.handleClickEdit} disabled={this.props.isDone}>edit</button></span>
+      element = <div className="todo-list__content">
+          <label className="checkbox-wrapper">
+            <span className={this.props.isDone ? 'done' : ''}>{this.props.text}</span>
+            <input type="checkbox" id={this.props.id} className="mr-2" checked={this.props.isDone} onChange={this.handleChangeStatus} />
+            <span className="checkmark"></span>
+          </label>
+          <Button color="primary" onClick={this.handleClickEdit} disabled={this.props.isDone}>edit</Button>
+        </div>
     }
 
     return (
-      <div>
-        <input type="checkbox" onChange={this.handleChangeStatus} checked={this.props.isDone} />
-        { element }
-        <button onClick={this.handleClickDelete}>delete</button>
+      <div className="todo-list__item py-3">
+        <div>
+          { element }
+        </div>
+        <Button color="danger" className="ml-1" onClick={this.handleClickDelete}>delete</Button>
       </div>
     )
   }

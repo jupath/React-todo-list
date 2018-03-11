@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import { Button } from 'reactstrap';
 
 class TodoForm extends Component {
 
@@ -31,12 +32,12 @@ class TodoForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-form">
         <form onSubmit={this.saveTodo}>
           <input type="text" name="addTodo" />
-          <button>Save</button>
+          <Button color="success" className="">Save</Button>
         </form>
-        { this.state.error && <p>{ this.state.error }</p> }
+        { this.state.error && <p className="text-danger">{ this.state.error }</p> }
       </div>
     );
   };

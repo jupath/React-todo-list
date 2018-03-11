@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Header = () => (
-  <header>
-    <h1>Todo list built with React</h1>
-    <h3></h3>
+  <header className="text-center">
+    <h1 className="pt-4 text-uppercase">Create your to-do list</h1>
+    <h3 className="pb-4">This app was built with <a href="https://reactjs.org/" target="_blank">React</a></h3>
   </header>
 );
 
