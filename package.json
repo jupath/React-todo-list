@@ -6,7 +6,8 @@
   "scripts": {
     "dev-server": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build"
   },
   "repository": "https://github.com/jupath/React-todo-list.git",
   "author": "Attila Taligas",
