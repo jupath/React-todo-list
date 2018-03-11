@@ -1,5 +1,5 @@
 ## React todo list with localStorage
-Todo list built with React and Bootstrap 4 ([reactstrap](http://reactstrap.github.io/))
+Todo list built with React, Bootstrap 4 ([reactstrap](http://reactstrap.github.io/)) and SASS.
 
 ### Installation
 ```bash
