@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EditTodoForm from './EditTodoForm';
 import { Button } from 'reactstrap';
+import EditTodoForm from './EditTodoForm';
 
 class TodoListItem extends Component {
 
@@ -55,7 +55,7 @@ class TodoListItem extends Component {
     }
 
     return (
-      <div className="todo-list__item py-3">
+      <div className="todo-list__item py-3" key={this.props.id}>
         <div>
           { element }
         </div>
