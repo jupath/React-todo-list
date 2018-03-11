@@ -4,8 +4,7 @@ import { Button } from 'reactstrap';
 class EditTodoForm extends Component {
 
   state = {
-    text: this.props.text,
-    error: false
+    text: this.props.text
   }
 
   handleChangeText = event => {
@@ -16,15 +15,8 @@ class EditTodoForm extends Component {
   handleChangeTextSubmit = event => {
     event.preventDefault();
     const text = this.state.text;
-    if( text === '' ) {
-      this.setState({
-        error: 'Please fill out the field!'
-      });
-    } else {
+    if( text !== '' ) {
       this.props.handleEditTodo(text);
-      this.setState({
-        error: false
-      });
     }
   }
 
@@ -35,7 +27,6 @@ class EditTodoForm extends Component {
           <input type="text" value={this.state.text} onChange={this.handleChangeText} />
           <Button color="success">save</Button>
         </form>
-        { this.state.error && <p>{this.state.error}</p> }
       </div>
     )
   }
