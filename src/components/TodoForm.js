@@ -34,7 +34,7 @@ class TodoForm extends Component {
     return (
       <div className="todo-form">
         <form onSubmit={this.saveTodo}>
-          <input type="text" name="addTodo" />
+          <input type="text" name="addTodo" placeholder="Add your todos..." />
           <Button color="success" className="">Save</Button>
         </form>
         { this.state.error && <p className="text-danger">{ this.state.error }</p> }
